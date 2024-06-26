@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Manrope-Regular";
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+input,
+textarea {
+  -webkit-text-size-adjust: 100%; /* Disable text auto-resizing */
+}
+@font-face {
+  font-family: "Manrope-Light";
+  src: url("/fonts/manrope/Manrope-Light.otf") format("OpenType");
+}
+@font-face {
+  font-family: "Manrope-Regular";
+  src: url("/fonts/manrope/Manrope-Regular.otf") format("OpenType");
+}
+@font-face {
+  font-family: "Manrope-Medium";
+  src: url("/fonts/manrope/Manrope-Medium.otf") format("OpenType");
+}
+@font-face {
+  font-family: "manrope-SemiBold";
+  src: url("/fonts/manrope/Manrope-SemiBold.otf") format("OpenType");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

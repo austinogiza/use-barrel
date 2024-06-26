@@ -1,0 +1,118 @@
+/** @type {import('tailwindcss').Config} */
+// const { nextui } = require("@nextui-org/react")
+const colors = require("tailwindcss/colors")
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/components/button.js",
+    // or you can use a glob pattern (multiple component styles)
+    "./node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js",
+  ],
+
+  theme: {
+    extend: {
+      height: {
+        12: "48px",
+      },
+      colors: {
+        smokeWhite: "#f4f4f5",
+        productPromoBg: "#DFDCD4",
+        shopHeroBg: "#f8f5fa",
+        snowWhite: "#F6F7F9",
+        smoothBG: "#FFFDFB",
+        outlineColor: "#DEE0E3",
+        borderStroke: "#D6D6D6",
+        strokeColor: "#C2C8DC",
+        warmLightBG: "#fdf6ec",
+        coolLightBG: "#fff8e2",
+        cleanBg: "#FDF6EC",
+        primary: {
+          "50": "#f4f2ff",
+          "100": "#ece7ff",
+          "200": "#dbd2ff",
+          "300": "#c0adff",
+          "400": "#a37fff",
+          "500": "#874bff",
+          "600": "#7b27ff",
+          "700": "#6612e0",
+          "800": "#5a11c6",
+          "900": "#4c10a2",
+          "950": "#2d076e",
+        },
+
+        neutral: {
+          50: "#f6f6f6",
+          100: "#e7e7e7",
+          200: "#d1d1d1",
+          300: "#b0b0b0",
+          400: "#888888",
+          500: "#6d6d6d",
+          600: "#5d5d5d",
+          700: "#4f4f4f",
+          800: "#454545",
+          900: "#3d3d3d",
+          950: "#000000",
+        },
+        success: {
+          50: "#f0fee7",
+          100: "#defccb",
+          200: "#bff99d",
+          300: "#95f264",
+          400: "#70e635",
+          500: "#50cc16",
+          600: "#3aa30d",
+          700: "#2e7c0f",
+          800: "#286212",
+          900: "#245314",
+          950: "#0e2e05",
+        },
+        warning: {
+          50: "#fbfee8",
+          100: "#f7ffc2",
+          200: "#f2ff87",
+          300: "#f2ff43",
+          400: "#fbff10",
+          500: "#efe903",
+          600: "#ceb900",
+          700: "#a48604",
+          800: "#88680b",
+          900: "#735510",
+          950: "#432e05",
+        },
+        destructive: {
+          50: "#fff0f0",
+          100: "#ffdddd",
+          200: "#ffc0c0",
+          300: "#ff9494",
+          400: "#ff5757",
+          500: "#ff2323",
+          600: "#ff0000",
+          700: "#d70000",
+          800: "#b10303",
+          900: "#920a0a",
+          950: "#500000",
+        },
+        info: {
+          50: "#e8f7ff",
+          100: "#d5efff",
+          200: "#b3dfff",
+          300: "#85c7ff",
+          400: "#56a1ff",
+          500: "#2f7aff",
+          600: "#0c4cff",
+          700: "#0041ff",
+          800: "#063ccd",
+          900: "#103a9f",
+          950: "#0a205c",
+        },
+      },
+    },
+  },
+  plugins: [
+    // nextui()
+  ],
+}
