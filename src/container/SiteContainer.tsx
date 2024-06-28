@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import "@/styles/globals.css"
 import { usePathname } from "next/navigation"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import CreateOrderSlide from "@/components/dashboard/order/create-order-slide"
 
 interface ContainerProps {
   children: React.ReactNode
@@ -19,6 +20,7 @@ const SiteContainer: React.FC<ContainerProps> = (props) => {
 
   return (
     <>
+      {/* <CreateOrderSlide /> */}
       {/* <NextUIProvider> */}
       <ReactQueryDevtools initialIsOpen={false} />
 
