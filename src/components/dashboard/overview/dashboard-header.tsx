@@ -1,9 +1,11 @@
+import { useActions } from "@/lib/use-actions"
 import { BarrelDefaultButton } from "@/styles/ButtonStyles"
 import { Add } from "iconsax-react"
 import React from "react"
 import { twc } from "react-twc"
 
 const DashboardHeader = () => {
+  const { openCreateModal } = useActions()
   return (
     <>
       <div className="flex flex-row items-center mb-10 justify-between w-full">
@@ -16,7 +18,7 @@ const DashboardHeader = () => {
         </div>
 
         <div>
-          <CreateOrderButton>
+          <CreateOrderButton onClick={openCreateModal}>
             <CreateIcon />
             <p className="text-sm font-medium"> Create order</p>
           </CreateOrderButton>

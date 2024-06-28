@@ -1,25 +1,40 @@
-import { CREATE_ORDER, SEE_ORDER } from "./actionsTypes"
+import {
+  CLOSE_CREATE_ORDER,
+  CLOSE_EDIT_MODAL,
+  CLOSE_SEE_ORDER,
+  OPEN_CREATE_ORDER,
+  OPEN_EDIT_MODAL,
+  OPEN_SEE_ORDER,
+} from "./actionsTypes"
 
-export const createOrderStart = (active: boolean) => {
+export const openCreateOrderModal = () => {
   return {
-    type: CREATE_ORDER,
-    active: active,
+    type: OPEN_CREATE_ORDER,
   }
 }
-export const openDetailsOrder = (active: boolean) => {
+export const closeCreateOrderModal = () => {
   return {
-    type: SEE_ORDER,
-    active: active,
-  }
-}
-export const openCreateModal = (state: any) => {
-  return (dispatch: any) => {
-    dispatch(createOrderStart(state))
+    type: CLOSE_CREATE_ORDER,
   }
 }
 
-export const openDetailsModal = (state: any) => {
-  return (dispatch: any) => {
-    dispatch(openDetailsOrder(state))
+export const openEditInvoiceModal = () => {
+  return {
+    type: OPEN_EDIT_MODAL,
+  }
+}
+export const closeEditInvoiceModal = () => {
+  return {
+    type: CLOSE_EDIT_MODAL,
+  }
+}
+export const openInvoiceDetailModal = () => {
+  return {
+    type: OPEN_SEE_ORDER,
+  }
+}
+export const closeInvoiceDetailModal = () => {
+  return {
+    type: CLOSE_SEE_ORDER,
   }
 }

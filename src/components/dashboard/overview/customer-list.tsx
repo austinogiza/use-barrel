@@ -33,6 +33,8 @@ const CustomerList = () => {
             photo={data.photo}
             full_name={data.name}
             email={data.email}
+            amount={data.amount}
+            duration={data.duration}
           />
         ))}
       </div>

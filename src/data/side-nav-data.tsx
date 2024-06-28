@@ -8,7 +8,7 @@ export const SideNavData = [
   },
 
   {
-    title: "Orders",
+    title: "Transactions",
     link: "/dashboard/orders",
     icon: <Chart size={20} className="text-iconColor" />,
   },

@@ -1,12 +1,13 @@
 "use client"
 import React, { FC, useEffect, useState } from "react"
-import OrderInfo from "./order-info"
-import SummaryDivider from "@/components/utils/summary-divider"
+import OrderInfo from "../order/order-info"
+import CustomerInfo from "./customer-info"
 import SitePagination from "@/components/utils/pagination"
+import SummaryDivider from "@/components/utils/summary-divider"
 interface TableComponentProps {
   data?: any
 }
-const OrderTable: FC<TableComponentProps> = (props) => {
+const CustomerTable: FC<TableComponentProps> = (props) => {
   const { data } = props
   const [activeNumber, setActiveNumber] = useState<number | null>(null)
   const [page, setPage] = useState<number>(1)
@@ -18,6 +19,7 @@ const OrderTable: FC<TableComponentProps> = (props) => {
       setActiveNumber(value)
     }
   }
+
   const maxItems = 8
   useEffect(() => {
     let extraPages = 1
@@ -29,7 +31,7 @@ const OrderTable: FC<TableComponentProps> = (props) => {
     }
   }, [maxItems, data])
   return (
-    <div className="overflow-hidden w-full">
+    <div className="overflow-hidden w-full h-full">
       <table className="flex flex-col w-full items-start justify-between ">
         <thead className="w-full">
           <tr className="flex flex-row w-full items-start justify-between border-b pb-2 mb-3">
@@ -37,12 +39,9 @@ const OrderTable: FC<TableComponentProps> = (props) => {
             <th className="max-w-[20px]  flex items-center justify-center w-full px-6 py-3 text-left text-sm font-bold text-black capitalize   ">
               #
             </th>
-            <th className="max-w-[140px] w-full flex items-start px-6 py-3 text-left text-sm font-bold text-black capitalize ">
-              Transaction Id
-            </th>
             <th className="max-w-[240px] w-full flex items-start px-6 py-3 text-left text-sm font-bold text-black capitalize  ">
               Customer
-            </th>
+            </th>{" "}
             <th className="max-w-[100px] w-full flex items-start px-6 py-3 text-left text-sm font-bold text-black capitalize ">
               Amount
             </th>
@@ -57,22 +56,23 @@ const OrderTable: FC<TableComponentProps> = (props) => {
             </th>
           </tr>
         </thead>
+
         <tbody className="w-full">
           {data
             ?.slice(maxItems * (page - 1), page * maxItems)
             ?.map((data: any, index: number) => (
-              <OrderInfo
+              <CustomerInfo
                 key={index}
                 total_price={data.amount}
                 order_id={data.transactionId}
-                customer_name={data.customer}
-                order_date={data.date}
+                customer_name={data.name}
+                order_date={data.paidDate}
                 toggleActionMenu={toggleActionMenu}
-                status={data.status}
+                status={data.duration}
                 number={index}
                 activeNumber={activeNumber}
-                customer_email={data.customer_email}
-                customer_photo={data.customer_photo}
+                customer_email={data.email}
+                customer_photo={data.photo}
               />
             ))}
         </tbody>
@@ -86,4 +86,4 @@ const OrderTable: FC<TableComponentProps> = (props) => {
   )
 }
 
-export default OrderTable
+export default CustomerTable

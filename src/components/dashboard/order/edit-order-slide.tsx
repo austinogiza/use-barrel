@@ -8,19 +8,41 @@ import {
   PrimaryLabel,
   PrimaryTextArea,
 } from "@/styles/InputStyle"
-import React from "react"
+import React, { useRef, useState } from "react"
 import { twc } from "react-twc"
+import OrderOption from "./order-option"
+import { useActions } from "@/lib/use-actions"
+import { toast } from "sonner"
 
 const EditOrderSlide = () => {
+  const [selectedOption, setSelectedOption] = useState<string>("one-time")
+  const { closeEditModal } = useActions()
+  const onChange = (value?: any) => {
+    setSelectedOption(value)
+  }
+  const containerRef = useRef<any>(null)
+
+  const closeModal = (e: any) => {
+    if (e.target === containerRef?.current) {
+      closeEditModal()
+    }
+  }
+  const closeWithToast = () => {
+    toast.message("Order updated")
+    closeEditModal()
+  }
   return (
-    <CreateOrderContainer>
+    <CreateOrderContainer ref={containerRef} onClick={closeModal}>
       <div className="bg-white h-full w-full max-w-[440px] px-6 py-4 relative">
-        <CloseButtonIcon />
+        <CloseButtonIcon onClick={closeEditModal} />
         <div className="mb-10">
           {" "}
           <h1 className="mb-1 font-bold text-2xl text-black">
             Edit order invoice
           </h1>
+          <p className="text-sm text-neutral-400 mt-0">
+            Edit your invoice for your clients{" "}
+          </p>
         </div>
         <div className="w-full">
           <form className="w-full">
@@ -60,12 +82,39 @@ const EditOrderSlide = () => {
               </AuthInputLabel>
               <AuthTextareaInput placeholder="Enter your business name, address, Tax ID number, etc." />
             </AuthInputRow>
-            <div className="flex w-full flex-row items-center justify-center gap-2">
-              <div className="w-full max-w-[120px]">
+            <div>
+              <div>
+                <AuthInputLabel>
+                  <AuthInputTitleLabel>Invoice type</AuthInputTitleLabel>
+                </AuthInputLabel>
+              </div>
+              <div className="flex flex-row items-center justify-between w-full my-3">
+                <OrderOption
+                  title="One-time"
+                  value="one-time"
+                  onChange={onChange}
+                  selectedOption={selectedOption}
+                />
+                <OrderOption
+                  title="Monthly"
+                  value="monthly"
+                  onChange={onChange}
+                  selectedOption={selectedOption}
+                />
+                <OrderOption
+                  title="Annually"
+                  value="annually"
+                  selectedOption={selectedOption}
+                  onChange={onChange}
+                />
+              </div>
+            </div>
+            <div className="flex w-full flex-row items-center justify-center gap-2 mt-4">
+              <div className="w-full max-w-[120px]" onClick={closeEditModal}>
                 <AuthOutlineButton title="Cancel" />
               </div>
-              <div className="w-full max-w-[65%]">
-                <AuthButton title="Create" />{" "}
+              <div className="w-full max-w-[65%]" onClick={closeWithToast}>
+                <AuthButton title="Save update" />{" "}
               </div>
             </div>
           </form>
@@ -76,7 +125,7 @@ const EditOrderSlide = () => {
 }
 
 const CreateOrderContainer = twc.div`
-fixed h-full w-full top-0 left-0 flex items-center justify-end bg-modalBg
+fixed h-full w-full top-0 left-0 flex items-center justify-end bg-modalBg z-[200]
 `
 // const CreateOrderContainer = twc.div``
 const OrderSubtitle = twc.h4` mt-2

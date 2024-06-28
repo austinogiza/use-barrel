@@ -7,7 +7,7 @@ interface BarrelOverviewProps {
 const BarrelOverview: FC<BarrelOverviewProps> = (props) => {
   const { title, price } = props
   return (
-    <div className="max-w-[650px] relative min-h-[88px] bg-white shadow-sm border border-neutral-50 rounded-lg w-full flex flex-col items-start justify-center px-4">
+    <div className="max-w-[650px] duration-300 transition-all hover:border-neutral-200 cursor-pointer relative min-h-[88px] bg-white shadow-sm border border-neutral-50 rounded-lg w-full flex flex-col items-start justify-center px-4 z-[2]">
       <h1 className="text-xs font-normal text-neutral-400 mb-1">{title}</h1>
       <p className="text-lg font-bold">{price}</p>
       <div className="absolute bottom-0 right-4">

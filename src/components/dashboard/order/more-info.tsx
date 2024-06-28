@@ -1,3 +1,4 @@
+import { useActions } from "@/lib/use-actions"
 import { cn } from "@/lib/utils"
 import React, { FC } from "react"
 interface MoreInfoProps {
@@ -5,6 +6,7 @@ interface MoreInfoProps {
 }
 const MoreInfo: FC<MoreInfoProps> = (props) => {
   const { active } = props
+  const { openEditModal, openDetailModeModal } = useActions()
   return (
     <div
       className={cn(
@@ -12,11 +14,30 @@ const MoreInfo: FC<MoreInfoProps> = (props) => {
         active ? "flex" : "hidden"
       )}
     >
-      <h1 className="text-sm cursor-pointer font-medium text-black">Edit</h1>
-      <h1 className="text-sm cursor-pointer font-medium text-black">View</h1>
-      <h1 className="text-sm cursor-pointer font-medium text-destructive-600">
-        Delete
-      </h1>
+      <div className=" px-3 py-1.5 hover:bg-smokeWhite w-full rounded-lg">
+        {" "}
+        <h1
+          className="text-sm cursor-pointer font-medium text-black "
+          onClick={openEditModal}
+        >
+          Edit
+        </h1>
+      </div>{" "}
+      <div className=" px-3 py-1.5 hover:bg-smokeWhite w-full rounded-lg">
+        {" "}
+        <h1
+          className="text-sm cursor-pointer font-medium text-black "
+          onClick={openDetailModeModal}
+        >
+          View
+        </h1>
+      </div>
+      <div className=" px-3 py-1.5 hover:bg-smokeWhite w-full rounded-lg">
+        {" "}
+        <h1 className="text-sm cursor-pointer font-medium text-destructive-600  ">
+          Delete
+        </h1>
+      </div>
     </div>
   )
 }

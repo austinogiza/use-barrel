@@ -28,7 +28,7 @@ const OrderDetails = () => {
 }
 
 const CreateOrderContainer = twc.div`
-fixed h-full w-full top-0 left-0 flex items-center justify-end bg-modalBg
+fixed h-full w-full top-0 left-0 flex items-center justify-end bg-modalBg z-[200]
 `
 // const CreateOrderContainer = twc.div``
 const OrderSubtitle = twc.h4` mt-2

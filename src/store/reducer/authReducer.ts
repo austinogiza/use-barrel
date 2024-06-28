@@ -33,7 +33,7 @@ const authSuccess = (state: any, action: any) => {
   })
 }
 
-const authFail = (state:any, action:any) => {
+const authFail = (state: any, action: any) => {
   console.log("authFail reducer called with error:", action.error)
   return updateObject(state, {
     error: action.error,

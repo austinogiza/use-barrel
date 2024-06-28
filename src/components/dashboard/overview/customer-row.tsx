@@ -5,9 +5,11 @@ interface CustomerRowProps {
   full_name?: string
   email?: string
   photo?: string
+  amount?: number
+  duration?: string
 }
 const CustomerRow: FC<CustomerRowProps> = (props) => {
-  const { full_name, email, photo } = props
+  const { full_name, email, photo, amount, duration } = props
   return (
     <>
       {" "}
@@ -27,8 +29,8 @@ const CustomerRow: FC<CustomerRowProps> = (props) => {
           </div>
         </div>
         <div className="flex flex-col">
-          <h1 className="text-sm font-bold text-black">$19.00</h1>
-          <p className="text-xs font-medium text-neutral-500">Monthly</p>
+          <h1 className="text-sm font-bold text-black">${amount}</h1>
+          <p className="text-xs font-medium text-neutral-500">{duration}</p>
         </div>
       </div>
       <div className=" last-of-type:hidden w-full">

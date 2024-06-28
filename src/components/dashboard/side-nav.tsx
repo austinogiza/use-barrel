@@ -10,8 +10,8 @@ import SideNavRow from "./side-nav-row"
 const SideNav = () => {
   const pathname = usePathname()
   return (
-    <div className="flex flex-col items-center justify-between py-6 max-w-[220px] bg-dashboardSideNavBg  w-full h-full gap-2">
-      <div className="flex flex-col items-center justify-start max-w-[220px] bg-dashboardSideNavBg  w-full h-full gap-2 py-4">
+    <div className="flex flex-col items-center justify-between py-6 max-w-[220px] bg-dashboardSideNavBg  w-full min-h-screen gap-2">
+      <div className="flex flex-col items-center justify-start max-w-[220px] bg-dashboardSideNavBg  w-full min-h-screen gap-2 py-4">
         <div className="flex w-full flex-col items-center justify-center">
           <BarrelLogo />
           <SideNavRow />

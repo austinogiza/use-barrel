@@ -1,5 +1,6 @@
 import SecondaryButton from "@/components/system/buttons/SecondaryButton"
 import CloseButtonIcon from "@/components/utils/close-button-icon"
+import { useActions } from "@/lib/use-actions"
 
 import { Add } from "iconsax-react"
 import React, { FC } from "react"
@@ -9,6 +10,7 @@ interface SetupGuideProps {
 }
 const SetupGuide: FC<SetupGuideProps> = (props) => {
   const { onClick } = props
+  const { openCreateModal } = useActions()
   return (
     <div className="relative bg-dashboardSideNavBg px-6 py-6 w-full min-h-[220px] rounded-2xl my-3 h-full flex flex-col items-start justify-between gap-4">
       <CloseButtonIcon onClick={onClick} />
@@ -27,7 +29,7 @@ const SetupGuide: FC<SetupGuideProps> = (props) => {
           plan to sell.
         </p>
       </div>
-      <div className="my-2">
+      <div className="my-2" onClick={openCreateModal}>
         <SecondaryButton
           isLink={false}
           icon={<Add size={20} className="text-white" />}

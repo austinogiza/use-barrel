@@ -1,10 +1,10 @@
 import React from "react"
-import Dashboard from "./dashboard"
+import Customers from "./customers"
 
 const page = () => {
   return (
     <div>
-      <Dashboard />
+      <Customers />
     </div>
   )
 }
