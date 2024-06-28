@@ -8,20 +8,30 @@ import {
   PrimaryLabel,
   PrimaryTextArea,
 } from "@/styles/InputStyle"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { twc } from "react-twc"
 import OrderOption from "./order-option"
 import { useActions } from "@/lib/use-actions"
 import { toast } from "sonner"
+import { useAppSelector } from "@/store/hooks"
+import { OrderTransactions } from "@/data/order-table-data"
 
 const EditOrderSlide = () => {
   const [selectedOption, setSelectedOption] = useState<string>("one-time")
+  const [orderDetails, setOrderDetails] = useState<any>(undefined)
   const { closeEditModal } = useActions()
   const onChange = (value?: any) => {
     setSelectedOption(value)
   }
   const containerRef = useRef<any>(null)
+  const number = useAppSelector((state) => state.order.activeModal)
 
+  useEffect(() => {
+    if (number === null || number === undefined) return
+
+    const order = OrderTransactions.find((data, index) => index === number)
+    setOrderDetails(order)
+  }, [number])
   const closeModal = (e: any) => {
     if (e.target === containerRef?.current) {
       closeEditModal()

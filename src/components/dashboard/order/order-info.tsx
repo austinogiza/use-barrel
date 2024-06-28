@@ -72,7 +72,7 @@ const OrderInfo: FC<OrderInfoProps> = (props) => {
             <OrderStatus status={status} />
           </td>
           <td className=" flex items-start px-6 py-3   text-left text-sm font-bold text-black capitalize  relative">
-            <MoreInfo active={number === activeNumber} />
+            <MoreInfo active={number === activeNumber} number={number} />
             <div
               className="relative"
               onClick={() => toggleActionMenu?.(number)}

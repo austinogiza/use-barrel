@@ -13,9 +13,11 @@ export const useActions = () => {
 
   const closeCreateModal = () => dispatch(closeCreateOrderModal())
   const openCreateModal = () => dispatch(openCreateOrderModal())
-  const openEditModal = () => dispatch(openEditInvoiceModal())
+  const openEditModal = (modalId?: any) =>
+    dispatch(openEditInvoiceModal(modalId))
   const closeEditModal = () => dispatch(closeEditInvoiceModal())
-  const openDetailModeModal = () => dispatch(openInvoiceDetailModal())
+  const openDetailModeModal = (modalId?: any) =>
+    dispatch(openInvoiceDetailModal(modalId))
   const closeDetailModeModal = () => dispatch(closeInvoiceDetailModal())
 
   return {

@@ -1,4 +1,4 @@
-import { BarrelDefaultButton } from "@/styles/ButtonStyles"
+import { BarrelLargeDefaultButton } from "@/styles/ButtonStyles"
 import { PrimaryInput, PrimaryLabel } from "@/styles/InputStyle"
 import Link from "next/link"
 import React from "react"
@@ -60,7 +60,7 @@ const UserResetPasswordForm = () => {
     </>
   )
 }
-const AuthButton = twc(BarrelDefaultButton)``
+const AuthButton = twc(BarrelLargeDefaultButton)``
 const AuthInput = twc(PrimaryInput)``
 const AuthInputRow = twc.div`
 flex flex-col my-3
@@ -68,5 +68,5 @@ flex flex-col my-3
 const AuthInputLabel = twc(PrimaryLabel)`
 
 `
-const AuthInputTitleLabel = twc(BarrelDefaultButton)``
+const AuthInputTitleLabel = twc(BarrelLargeDefaultButton)``
 export default UserResetPasswordForm

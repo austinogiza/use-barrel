@@ -4,6 +4,8 @@ import OrderInfo from "../order/order-info"
 import CustomerInfo from "./customer-info"
 import SitePagination from "@/components/utils/pagination"
 import SummaryDivider from "@/components/utils/summary-divider"
+import { useEmptyState } from "@/lib/use-empty-state"
+import CustomerEmptyState from "../order/customer-empty-state"
 interface TableComponentProps {
   data?: any
 }
@@ -12,6 +14,7 @@ const CustomerTable: FC<TableComponentProps> = (props) => {
   const [activeNumber, setActiveNumber] = useState<number | null>(null)
   const [page, setPage] = useState<number>(1)
   const [maxPage, setMaxPage] = useState<number>(1)
+  const { emptyState } = useEmptyState()
   const toggleActionMenu = (value: number) => {
     if (value === activeNumber) {
       setActiveNumber(null)
@@ -56,31 +59,40 @@ const CustomerTable: FC<TableComponentProps> = (props) => {
             </th>
           </tr>
         </thead>
-
-        <tbody className="w-full">
-          {data
-            ?.slice(maxItems * (page - 1), page * maxItems)
-            ?.map((data: any, index: number) => (
-              <CustomerInfo
-                key={index}
-                total_price={data.amount}
-                order_id={data.transactionId}
-                customer_name={data.name}
-                order_date={data.paidDate}
-                toggleActionMenu={toggleActionMenu}
-                status={data.duration}
-                number={index}
-                activeNumber={activeNumber}
-                customer_email={data.email}
-                customer_photo={data.photo}
-              />
-            ))}
-        </tbody>
-        <div className="w-full my-2">
-          {" "}
-          <SummaryDivider />
-        </div>
-        <SitePagination maxPage={maxPage} setPage={setPage} page={page} />
+        {emptyState ? (
+          <>
+            {" "}
+            <CustomerEmptyState />
+          </>
+        ) : (
+          <>
+            {" "}
+            <tbody className="w-full">
+              {data
+                ?.slice(maxItems * (page - 1), page * maxItems)
+                ?.map((data: any, index: number) => (
+                  <CustomerInfo
+                    key={index}
+                    total_price={data.amount}
+                    order_id={data.transactionId}
+                    customer_name={data.name}
+                    order_date={data.paidDate}
+                    toggleActionMenu={toggleActionMenu}
+                    status={data.duration}
+                    number={index}
+                    activeNumber={activeNumber}
+                    customer_email={data.email}
+                    customer_photo={data.photo}
+                  />
+                ))}
+            </tbody>
+            <div className="w-full my-2">
+              {" "}
+              <SummaryDivider />
+            </div>
+            <SitePagination maxPage={maxPage} setPage={setPage} page={page} />
+          </>
+        )}
       </table>
     </div>
   )

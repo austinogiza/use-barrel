@@ -23,7 +23,6 @@ export const authSuccess = (token: any) => {
 }
 
 export const authFail = (error: any) => {
-  console.log("authFail called with error:", error)
   return {
     type: AUTH_FAIL,
     error: error,
@@ -78,7 +77,6 @@ export const authLogin = (email?: any, password?: any, router?: any) => {
         }
       })
       .catch((err) => {
-        console.log("authLogin error:", err)
         if (
           err.response &&
           err.response.data &&

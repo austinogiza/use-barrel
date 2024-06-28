@@ -1,4 +1,4 @@
-import { BarrelDefaultButton } from "@/styles/ButtonStyles"
+import { BarrelLargeDefaultButton } from "@/styles/ButtonStyles"
 import { PrimaryInput, PrimaryLabel } from "@/styles/InputStyle"
 import Link from "next/link"
 import React from "react"
@@ -30,7 +30,7 @@ const UserLoginForm = () => {
               <AuthInputRow>
                 <div className="w-full mb-1 flex flex-row items-center justify-between">
                   <AuthInputLabel htmlFor="password">Password</AuthInputLabel>
-                  <Link href="/forgot-password">
+                  <Link href="/forgot-password" prefetch={true}>
                     {" "}
                     <h1 className="text-sm text-primary-700 hover:text-primary-950 font-semibold duration-500 transition-all cursor-pointer">
                       Forgot your password?
@@ -56,6 +56,7 @@ const UserLoginForm = () => {
             <div className="w-full flex items-center justify-center my-4 gap-2">
               {"Don't"} have an account?{" "}
               <Link
+                prefetch={true}
                 href="/signup"
                 className="text-sm text-primary-700 hover:text-primary-950 font-semibold duration-500 transition-all cursor-pointer"
               >
@@ -68,7 +69,7 @@ const UserLoginForm = () => {
     </>
   )
 }
-const AuthButton = twc(BarrelDefaultButton)``
+const AuthButton = twc(BarrelLargeDefaultButton)``
 const AuthInput = twc(PrimaryInput)``
 const AuthInputRow = twc.div`
 flex flex-col my-3
@@ -76,5 +77,5 @@ flex flex-col my-3
 const AuthInputLabel = twc(PrimaryLabel)`
 
 `
-const AuthInputTitleLabel = twc(BarrelDefaultButton)``
+const AuthInputTitleLabel = twc(BarrelLargeDefaultButton)``
 export default UserLoginForm

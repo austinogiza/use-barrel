@@ -47,22 +47,23 @@ const Dashboard = () => {
           <GetVerified onClick={closeVerified} />
         </>
       ) : null}
-
       {showStarted ? (
         <>
           <GetStarted onClick={closeGetStarted} />
         </>
       ) : null}
-
       <div className="my-6 w-full">
         <SummaryDivider />
       </div>
-      <div className="grid grid-cols-5 w-full items-center justify-center gap-3">
+      <div className="grid lg:grid-cols-2 place-items-center xl:grid-cols-4 grid-cols-1 w-full items-center justify-center gap-3">
         {OverviewData?.map((data, index: number) => (
           <BarrelOverview key={index} title={data.title} price={data.price} />
         ))}
+      </div>{" "}
+      <div className="my-6 w-full">
+        <SummaryDivider />
       </div>
-      <div className="mt-10 w-full items-start justify-between flex flex-row gap-10">
+      <div className="mt-10 w-full items-start justify-between flex lg:flex-col xl:flex-row flex-col gap-10">
         {" "}
         <div className="w-full">
           <div className="w-full items-center justify-between flex flex-row px-4 pt-6 py-4 mb-4">

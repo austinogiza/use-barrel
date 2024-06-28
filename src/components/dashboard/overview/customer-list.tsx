@@ -3,8 +3,11 @@ import CustomerRow from "./customer-row"
 import { CustomerData } from "@/data/customer-data"
 import SummaryDivider from "@/components/utils/summary-divider"
 import Link from "next/link"
+import CustomerEmptyState from "../order/customer-empty-state"
+import { useEmptyState } from "@/lib/use-empty-state"
 
 const CustomerList = () => {
+  const { emptyState } = useEmptyState()
   return (
     <div className="max-w-[350px] w-full mx-auto bg-white  shadow shadow-neutral-50 border border-neutral-50 flex flex-col rounded-3xl">
       <div className="w-full items-center justify-between flex flex-row px-4 pt-6 py-4 ">
@@ -26,18 +29,28 @@ const CustomerList = () => {
         </Link>
       </div>
       <SummaryDivider />
-      <div className="flex flex-col my-1 w-full px-2 py-4 ">
-        {CustomerData.slice(0, 6)?.map((data, index: number) => (
-          <CustomerRow
-            key={index}
-            photo={data.photo}
-            full_name={data.name}
-            email={data.email}
-            amount={data.amount}
-            duration={data.duration}
-          />
-        ))}
-      </div>
+      {!!emptyState ? (
+        <>
+          {" "}
+          <CustomerEmptyState />
+        </>
+      ) : (
+        <>
+          {" "}
+          <div className="flex flex-col my-1 w-full px-2 py-4 ">
+            {CustomerData.slice(0, 6)?.map((data, index: number) => (
+              <CustomerRow
+                key={index}
+                photo={data.photo}
+                full_name={data.name}
+                email={data.email}
+                amount={data.amount}
+                duration={data.duration}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }

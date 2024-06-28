@@ -4,23 +4,19 @@ interface OverviewDataProps {
 }
 export const OverviewData: OverviewDataProps[] = [
   {
-    title: "Overview",
+    title: "Balance",
     price: "$240.51",
   },
   {
-    title: "Day's Range",
-    price: "$239.00 - $245.03",
+    title: "Total amount of payment",
+    price: "$239.00",
   },
   {
-    title: "Settlement Date",
+    title: "Number of payouts",
     price: "2024-03-15",
   },
   {
     title: "Volume",
     price: "31,888",
-  },
-  {
-    title: "Outstanding",
-    price: "2,353",
   },
 ]
