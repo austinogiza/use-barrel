@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react"
 
-const order-chart = () => {
-  return (
-    <div>order-chart</div>
-  )
+const OrderChart = () => {
+  return <div>OrderChart</div>
 }
 
-export default order-chart
+export default OrderChart

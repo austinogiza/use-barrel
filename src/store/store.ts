@@ -3,6 +3,11 @@ import { load } from "redux-localstorage-simple"
 import authReducer from "./reducer/authReducer"
 import orderReducer from "./reducer/orderCreateReducer"
 
+type RootState = {
+  auth: ReturnType<typeof authReducer>
+  order: ReturnType<typeof orderReducer>
+}
+
 type MergedState = {
   histories: {
     [key: string]: any
@@ -10,15 +15,16 @@ type MergedState = {
 }
 
 const PERSISTED_KEYS: string[] = []
-const loadedState = load({ states: PERSISTED_KEYS }) as MergedState
-const tempState: any = loadedState
+const loadedState = load({ states: PERSISTED_KEYS }) as Partial<
+  RootState & MergedState
+>
+const tempState: Partial<RootState> = loadedState
 
 export const useBarrelStore = configureStore({
   reducer: {
     auth: authReducer,
     order: orderReducer,
   },
-
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: true,

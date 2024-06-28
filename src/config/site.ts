@@ -14,10 +14,10 @@ export const siteConfig: SiteConfig = {
   title: "Use Barrel",
   name: "Use Barrel",
   description: "The fastest way to design and deploy procurement automation",
-  url: "https://usebarrel.netlify.app",
+  url: "https://use-barrel.vercel.app",
   social: "@janefashion",
-  ogImage: "https://usebarrel.netlify.app/og.png",
+  ogImage: "https://use-barrel.vercel.app/og.png",
   links: {
-    twitter: "https://usebarrel.netlify.app/og.png",
+    twitter: "https://use-barrel.vercel.app/og.png",
   },
 }

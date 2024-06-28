@@ -86,10 +86,6 @@ const CustomerTable: FC<TableComponentProps> = (props) => {
                   />
                 ))}
             </tbody>
-            <div className="w-full my-2">
-              {" "}
-              <SummaryDivider />
-            </div>
             <SitePagination maxPage={maxPage} setPage={setPage} page={page} />
           </>
         )}

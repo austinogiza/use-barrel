@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import type { FC } from "react"
 import { ArrowLeft, ArrowRight } from "iconsax-react"
+import SummaryDivider from "./summary-divider"
 interface PaginationProps {
   maxPage: number
   setPage: (value: any) => void
@@ -16,26 +17,33 @@ const SitePagination: FC<PaginationProps> = (props) => {
   const { maxPage, setPage, page } = props
 
   return (
-    <TokensTablePagination active={maxPage > 1}>
-      <TokenLeftCover
-        className="bg-white shadow border-[0.5px] border-neutral-50 shadow-slate-100 hover:shadow-xl transition duration-500 ease-in-out px-3 py-2 rounded-lg flex items-center justify-center"
-        onClick={() => {
-          setPage(page === 1 ? page : page - 1)
-        }}
-      >
-        <TokenLeftArrow />
-      </TokenLeftCover>
-      <TokenTypeBody>{"Page " + page + " of " + maxPage}</TokenTypeBody>
+    <>
+      {" "}
+      <div className="w-full my-2">
+        {" "}
+        <SummaryDivider />
+      </div>{" "}
+      <TokensTablePagination active={maxPage > 1}>
+        <TokenLeftCover
+          className="bg-white shadow border-[0.5px] border-neutral-50 shadow-slate-100 hover:shadow-xl transition duration-500 ease-in-out px-3 py-2 rounded-lg flex items-center justify-center"
+          onClick={() => {
+            setPage(page === 1 ? page : page - 1)
+          }}
+        >
+          <TokenLeftArrow />
+        </TokenLeftCover>
+        <TokenTypeBody>{"Page " + page + " of " + maxPage}</TokenTypeBody>
 
-      <TokenRightCover
-        className="bg-white shadow border-[0.5px] border-neutral-50 shadow-slate-100 hover:shadow-xl transition duration-500 ease-in-out px-3 py-2 rounded-lg flex items-center justify-center"
-        onClick={() => {
-          setPage(page === maxPage ? page : page + 1)
-        }}
-      >
-        <TokenRightArrow />
-      </TokenRightCover>
-    </TokensTablePagination>
+        <TokenRightCover
+          className="bg-white shadow border-[0.5px] border-neutral-50 shadow-slate-100 hover:shadow-xl transition duration-500 ease-in-out px-3 py-2 rounded-lg flex items-center justify-center"
+          onClick={() => {
+            setPage(page === maxPage ? page : page + 1)
+          }}
+        >
+          <TokenRightArrow />
+        </TokenRightCover>
+      </TokensTablePagination>
+    </>
   )
 }
 const TokensTablePagination = styled.div<PaginationActiveProps>`

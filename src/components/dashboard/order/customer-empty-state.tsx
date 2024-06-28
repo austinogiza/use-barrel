@@ -19,8 +19,8 @@ const CustomerEmptyState = () => {
           No Customers Yet
         </h1>
         <p className=" text-xs font-medium text-neutral-400 text-center">
-          It looks like you haven't added any customers. Add your first customer
-          to get started!
+          It looks like you {"haven't"} added any customers. Add your first
+          customer to get started!
         </p>
       </div>
       <div

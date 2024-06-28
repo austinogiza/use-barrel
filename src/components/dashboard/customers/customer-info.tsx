@@ -76,12 +76,12 @@ const CustomerInfo: FC<OrderInfoProps> = (props) => {
             >
               <OrderMoreIcon />
             </div>
-          </td>
-        </tr>
-      </div>
-      <div className=" last-of-type:hidden w-full">
-        {" "}
-        <SummaryDivider />
+          </td>{" "}
+          <div className=" last-of-type:hidden w-full">
+            {" "}
+            <SummaryDivider />
+          </div>
+        </tr>{" "}
       </div>
     </>
   )
